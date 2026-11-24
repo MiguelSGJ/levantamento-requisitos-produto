@@ -1,0 +1,23 @@
+name: Melhorar documentação
+description: Corrigir ou ampliar exemplos, guias e traduções
+title: "[Docs] "
+labels: ["documentation"]
+body:
+  - type: input
+    id: file
+    attributes:
+      label: Arquivo ou seção
+      placeholder: README.md, docs/INSTALACAO.md...
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: O que precisa melhorar?
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Texto ou exemplo sugerido
+      description: Use somente dados fictícios ou públicos autorizados.

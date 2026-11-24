@@ -1,0 +1,31 @@
+name: Validate skill
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Validate metadata, references and links
+        run: python3 scripts/validate_skill.py
+      - name: Unit tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Installer smoke tests
+        run: bash tests/test_install.sh
+      - name: Check Bash syntax
+        run: bash -n scripts/install.sh scripts/publicar-github.sh scripts/seed_issues.sh tests/test_install.sh

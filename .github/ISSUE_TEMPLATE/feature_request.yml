@@ -1,0 +1,33 @@
+name: Propor melhoria
+description: Sugerir funcionalidade, referência, automação ou exemplo
+title: "[Melhoria] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema a resolver
+      description: Qual lacuna da metodologia ou ferramenta foi identificada?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposta
+      description: Descreva o comportamento sugerido e alternativas.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Critérios de aceite
+      description: Como verificar que a melhoria funciona?
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Restrições
+      options:
+        - label: A proposta não obriga o agente a tomar decisões de produto sem aprovação.
+          required: true

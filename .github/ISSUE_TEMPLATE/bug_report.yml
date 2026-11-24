@@ -1,0 +1,40 @@
+name: Relatar problema
+description: Reportar comportamento incorreto, instrução contraditória ou erro de instalação
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: "Não inclua documentos reais, senhas, tokens ou dados de terceiros."
+  - type: textarea
+    id: summary
+    attributes:
+      label: Qual é o problema?
+      description: Explique o que ocorreu.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Como reproduzir?
+      description: Inclua um exemplo fictício e comandos relevantes.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento esperado
+      description: O que deveria acontecer sem inventar decisões de produto?
+    validations:
+      required: true
+  - type: dropdown
+    id: agent
+    attributes:
+      label: Agente ou ambiente
+      options:
+        - Codex
+        - Claude Code
+        - Outro agente
+        - Não se aplica
+    validations:
+      required: true
